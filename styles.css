@@ -1,0 +1,75 @@
+/* Estilos gerais */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f0e1f7; /* Cor de fundo suave */
+    color: #333;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card {
+    width: 300px;
+    height: 200px;
+    perspective: 1000px; /* Dá a sensação de 3D quando virando */
+    cursor: pointer;
+}
+
+.front, .back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden; /* Impede que o lado de trás apareça enquanto vira */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    border: 2px solid #d5005f;
+    border-radius: 10px;
+    background-color: #fff;
+}
+
+.front {
+    background-color: #ffd6e0;
+}
+
+.back {
+    background-color: #f0a7c1;
+    transform: rotateY(180deg); /* Deixa o lado de trás virado para o outro lado */
+}
+
+/* Animação para o virar da carta */
+.card.open .front {
+    transform: rotateY(-180deg);
+    transition: transform 0.6s;
+}
+
+.card.open .back {
+    transform: rotateY(0deg);
+    transition: transform 0.6s;
+}
+
+h2 {
+    font-size: 1.8rem;
+    color: #d5005f;
+}
+
+p {
+    font-size: 1.8rem;
+    color: #ffffff;
+    padding: 20px;
+    text-align: center;
+}
